@@ -37,10 +37,10 @@ main {
   background-color: #eee;
   padding: 0;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: 0 !important; // accommodate the navbar
   }
 section {
   @extend .row;
-  margin-top: 20px;
+  margin-top: 0 !important;
 
   }
