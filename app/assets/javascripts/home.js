@@ -3,6 +3,7 @@ $(document).ready(function() {
         //menu: '.navbar',
         //verticalCentered: false,
         resize : false,
+        loopHorizontal: false,
         //anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
         //navigation: true,
         //navigationPosition: 'right',

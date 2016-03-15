@@ -1,11 +1,6 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 h1 {
 	font-size: 5em;	
 	font-family: arial,helvetica;
-	color: #fff;
 	margin: 0;
 	padding: 0;
 }
@@ -17,8 +12,4 @@ h1 {
 #section1, #section2, #section3, #section4 {
 	background-size: cover;
   background-image: image-url("bg3.jpg");
-}
-
-.section h1, .slide h1 {
-  color: black;
 }
