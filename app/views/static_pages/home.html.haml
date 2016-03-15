@@ -1,9 +1,10 @@
 .fullpage
-  #section1.section
-    %h1 Title 1
-  #section2.section
-    %h1 Title 2
-  #section3.section
-    %h1 Title 3
-  #section4.section
-    %h1 Title 4
+  .section
+    #section1.slide
+      = render 'static_pages/first_page'
+    #section2.slide
+      = render 'static_pages/second_page'
+    #section3.slide
+      = render 'static_pages/third_page'
+    #section4.slide
+      %h1 My contacts
