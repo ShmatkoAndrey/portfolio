@@ -1,5 +1,13 @@
 $(document).ready(function() {
     $('.fullpage').fullpage({
+        //scrollBar: true,
+
+        //autoScrolling: false,
+        //normalScrollElements: '.section',
+
+        //fitToSection: false,
+        //autoScrolling: false,
+
         //menu: '.navbar',
         //verticalCentered: false,
         //anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
