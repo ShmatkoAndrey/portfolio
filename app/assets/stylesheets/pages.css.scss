@@ -25,6 +25,13 @@
   font-family: Myriad;
 }
 
-.fp-scrollable {
-  overflow: auto;
+#skills_list {
+  border: 5px dotted red;
+  //height: 100px;
+  padding: 20px;
+}
+
+#demo_skill {
+  border: 5px dotted red;
+  height: 600px;
 }
