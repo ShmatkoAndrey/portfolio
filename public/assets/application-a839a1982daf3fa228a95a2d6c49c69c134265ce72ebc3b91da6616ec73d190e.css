@@ -10705,4 +10705,5 @@ h1 {
 /* line 17, /home/andrei/projects/work/portfolio/app/assets/stylesheets/static_pages.css.scss */
 .fp-scrollable {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
