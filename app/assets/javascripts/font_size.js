@@ -1,8 +1,9 @@
 window.onload = function () {
-    var div = document.getElementById('news_header');
-    var txt = document.getElementById('block_summary');
 
     function setFontSize() {
+        var div = $('#news_header')[0];
+        var txt = $('#block_summary')[0];
+
         var coords = div.getBoundingClientRect();
         var w = coords.right - coords.left;
 
