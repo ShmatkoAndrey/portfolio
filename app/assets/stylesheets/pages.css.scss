@@ -27,7 +27,10 @@
 
 #skills_list {
   border: 5px dotted red;
-  //height: 100px;
+  overflow: auto;
+}
+
+.nav-justified > li > a, .nav-tabs.nav-justified > li > a {
   padding: 20px;
 }
 
