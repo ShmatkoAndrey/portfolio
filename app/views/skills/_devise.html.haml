@@ -1,2 +1,52 @@
-%h1
+%h2
   Devise
+- if user_signed_in?
+
+  You email:
+  = current_user.email
+
+  = link_to('LogOut', destroy_user_session_path, :method => :delete)
+
+
+- else
+  #log_in
+    = form_for(resource, as: resource_name, url: session_path(resource_name), remote: true) do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true
+      .field
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: 'off'
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+        = f.submit 'Log in'
+    %a{onClick: 'login_or_signup("signup")'}
+      Sign up
+
+  #sign_up{style: 'display: none;'}
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: 'off'
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: 'off'
+      .actions
+        = f.submit 'Sign up'
+    %a{onClick: 'login_or_signup("login")'}
+      Back
