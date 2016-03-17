@@ -1,14 +1,9 @@
 .col-md-1
 .col-md-10
   #skills_list
-    - @skills = %w(Devise Omniauth CarrierWave/Paperclip CanCanCan Ranask Devise Omniauth CarrierWave/Paperclip CanCanCan Ranask)
     %ul.nav.nav-pills.nav-justified
-
-      %li.active{:role => 'presentation'}
-        %a Bootstrap
-
-      - @skills.each do |skill|
-        %li{:role => 'presentation'}
-          %a{href: '#'} #{skill}
+      - skills_list.each do |skill|
+        %li{:role => 'presentation', id: "li_skill_#{skill}"}
+          %a{href: '#', onClick: "skillclick('#{skill}')"} #{skill.first.upcase + skill[1..-1]}
   #demo_skill
-    
+    = render 'skills/all_skills'
