@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # , controllers: {
-  #     sessions: 'users/sessions'
-  # }
+  devise_for :users, controllers: {
+      sessions: 'users/sessions'
+  }
 
   get 'static_pages/home' => 'static_pages#home'
   root  'static_pages#home'

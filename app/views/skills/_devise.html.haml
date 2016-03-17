@@ -5,8 +5,7 @@
   You email:
   = current_user.email
 
-  = link_to('LogOut', destroy_user_session_path, :method => :delete)
-
+  = link_to('LogOut', destroy_user_session_path, :remote => true)
 
 - else
   #log_in
@@ -30,7 +29,7 @@
 
   #sign_up{style: 'display: none;'}
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
+      =# devise_error_messages!
       .field
         = f.label :email
         %br/
