@@ -32,3 +32,7 @@ end
 gem 'jquery-ui-rails'
 
 gem 'devise'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
