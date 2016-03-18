@@ -1,12 +1,12 @@
 GMAIL_USER: 'galleryofficial@gmail.com'
 GMAIL_SECRET: 'qwertyazsxdc'
+GOOGLE_MAP: 'AIzaSyBs8K7eayFPLgyZzC-KZCLDgLz_N09-gTc'
 
 development:
   FB_KEY: '1997533793805209'
   FB_SECRET: 'ed28000574a370346a5e6545444a0ae9'
   VK_KEY: '5057616 '
   VK_SECRET: 'QMSZSLIfHdnO2AYcgZDw'
-  GOOGLE_MAP: 'AIzaSyBs8K7eayFPLgyZzC-KZCLDgLz_N09-gTc'
 
 #production:
 #  FB_KEY: '1619116985017158'
