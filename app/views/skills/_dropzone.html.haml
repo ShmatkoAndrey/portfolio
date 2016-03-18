@@ -5,5 +5,6 @@
 .col-md-7
   #media-contents
     - dropzone_files.each do |media|
-      .thumbnail
-        = image_tag media.file.url
+      - if media.file.file.exists?
+        .thumbnail
+          = image_tag media.file.url
