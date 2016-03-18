@@ -267,4 +267,7 @@ Devise.setup do |config|
   config.http_authenticatable_on_xhr = false
   config.navigational_formats = ["*/*", :html, :json, :js]
 
+  config.omniauth :facebook, ENV['FB_KEY'], ENV['FB_SECRET']
+  # config.omniauth :vkontakte, ENV['VK_KEY'], ENV['VK_SECRET']
+
 end

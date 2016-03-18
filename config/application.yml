@@ -1,0 +1,14 @@
+GMAIL_USER: 'galleryofficial@gmail.com'
+GMAIL_SECRET: 'qwertyazsxdc'
+
+development:
+  FB_KEY: '1997533793805209'
+  FB_SECRET: 'ed28000574a370346a5e6545444a0ae9'
+  VK_KEY: '5057616 '
+  VK_SECRET: 'QMSZSLIfHdnO2AYcgZDw'
+
+#production:
+#  FB_KEY: '1619116985017158'
+#  FB_SECRET: '3d49436a6cda853f7606a3025eb3f0d2'
+#  VK_KEY: '5048141'
+#  VK_SECRET: '3k4ZUhzY6Q6JcqV755Kg'
