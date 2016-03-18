@@ -1,28 +1,32 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # You should configure your model like this:
-  # devise :omniauthable, omniauth_providers: [:twitter]
+  def self.provides_callback_for(provider)
+    class_eval %Q{
+      def #{provider}
 
-  # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+        auth = request.env["omniauth.auth"]
 
-  # More info at:
-  # https://github.com/plataformatec/devise#omniauth
+        puts auth.extra.raw_info.inspect .blue
+        puts auth.info.image .red
+        puts auth.extra.raw_info.name .red
+        puts auth.extra.raw_info.email .red
 
-  # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
+        redirect_to :back
+        # respond_to do |format|
+        #     format.js
+        # end
+      end
+    }
+  end
 
-  # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+  [:twitter, :facebook].each do |provider|
+    provides_callback_for provider
+  end
 
-  # protected
-
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
+  # def after_sign_in_path_for(resource)
+  #   if resource.email_verified?
+  #     super resource
+  #   else
+  #     finish_signup_path(resource)
+  #   end
   # end
 end
