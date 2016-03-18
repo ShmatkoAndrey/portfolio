@@ -4,8 +4,6 @@ window.onload = function () {
         var div = $('#news_header')[0];
         var txt = $('#block_summary')[0];
         var skills = $('#block_skills')[0];
-
-
         var coords = div.getBoundingClientRect();
         var w = coords.right - coords.left;
 
