@@ -1,0 +1,9 @@
+.col-md-5.large_height
+  = form_tag '/dropzone_files', method: :post, class: 'dropzone drop_form', id: 'media-dropzone' do
+    .fallback
+      = file_field_tag 'media', multiple: true
+.col-md-7
+  #media-contents
+    - dropzone_files.each do |media|
+      .thumbnail
+        = image_tag media.file.url

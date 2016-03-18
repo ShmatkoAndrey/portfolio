@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def skills_list
-    %w(devise omniauth googleMap carrierWave)
+    %w(devise omniauth googleMap dropzone)
   end
 
 end
