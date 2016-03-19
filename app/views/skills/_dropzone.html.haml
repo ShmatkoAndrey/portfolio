@@ -7,4 +7,9 @@
     - dropzone_files.each do |media|
       - if media.file.file.exists?
         .thumbnail
-          = image_tag media.file.url
+          = image_tag media.file.url#, 'data-toggle' => "modal", 'data-target' => "#myModal"
+
+-##myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "5"}
+-#  .modal-dialog{:role => "document"}
+-#    .modal-content
+-#      .modal-body

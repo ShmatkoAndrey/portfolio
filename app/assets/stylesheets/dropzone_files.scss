@@ -16,3 +16,9 @@
   overflow: auto;
   height: 660px;
 }
+
+.modal-dialog {
+  width: -moz-min-content;
+  width: -webkit-min-content;
+  width: min-content;
+}
