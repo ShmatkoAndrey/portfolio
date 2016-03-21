@@ -14,11 +14,16 @@
 
 #media-contents {
   overflow: auto;
-  height: 660px;
+  height: 650px;
 }
 
 .modal-dialog {
   width: -moz-min-content;
   width: -webkit-min-content;
   width: min-content;
+}
+
+#image_show {
+  margin-top: 15px;
+  width: 100%;
 }

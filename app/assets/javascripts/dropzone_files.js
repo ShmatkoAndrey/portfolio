@@ -7,7 +7,7 @@ $(function() {
         var _this = this;
         setTimeout(function(){
             _this.removeAllFiles();
-        },3000);
+        },5000);
 
     });
 });
@@ -16,6 +16,10 @@ var appendContent = function(imageUrl, mediaId) {
     $("#media-contents").prepend('<div class="thumbnail" style="border: 1px solid red;"><img src="' + imageUrl + '"/></div>');
 };
 
+function showImage(url){
+    var code = '<img src="' + url + '" />';
+    $('#image_show').html(code);
+}
 
 
 //$('#myModal').modal({
