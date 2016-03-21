@@ -44,3 +44,5 @@ gem 'dropzonejs-rails'
 gem 'remotipart'
 
 gem 'tinymce-rails'
+
+gem 'yt'

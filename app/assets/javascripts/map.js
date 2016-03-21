@@ -10,7 +10,3 @@ function initMap() {
         map: map
     });
 }
-
-//$(document).ready(function(){
-//    initMap();
-//});
