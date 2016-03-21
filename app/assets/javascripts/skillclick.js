@@ -7,6 +7,7 @@ function skillclick(skill) {
     if(skill == 'googleMap') { initMap();}
     else if(skill == 'tinymce') {
         tinyMCE.init({
+            resize: false,
             //plugins: [
             //    "advlist autolink lists link image charmap print preview anchor",
             //    "searchreplace visualblocks code fullscreen",
