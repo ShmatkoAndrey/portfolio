@@ -15,12 +15,7 @@
 #media-contents {
   overflow: auto;
   height: 650px;
-}
-
-.modal-dialog {
-  width: -moz-min-content;
-  width: -webkit-min-content;
-  width: min-content;
+  text-align: left;
 }
 
 #image_show {

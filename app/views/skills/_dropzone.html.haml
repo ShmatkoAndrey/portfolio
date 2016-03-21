@@ -5,12 +5,7 @@
   #image_show
 .col-md-7
   #media-contents
-    - dropzone_files.each do |media|
+    - dropzone_files.reverse.each do |media|
       - if media.file.file.exists?
         .thumbnail{onClick: "showImage('#{media.file.url}')"}
-          = image_tag media.file.url#, 'data-toggle' => "modal", 'data-target' => "#myModal"
-
--##myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "5"}
--#  .modal-dialog{:role => "document"}
--#    .modal-content
--#      .modal-body
+          = image_tag media.file.url
