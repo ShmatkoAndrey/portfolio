@@ -6,12 +6,10 @@ if($('#media-dropzone')){
         mediaDropzone = new Dropzone("#media-dropzone");
         return mediaDropzone.on("success", function(file, responseText) {
             appendContent(responseText.file.url, responseText.id);
-
             var _this = this;
             setTimeout(function(){
                 _this.removeAllFiles();
             },5000);
-
         });
     });
 

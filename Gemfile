@@ -45,4 +45,5 @@ gem 'remotipart'
 
 gem 'tinymce-rails'
 
-gem 'yt'
+# gem 'yt'
+# gem 'rails-observers'
