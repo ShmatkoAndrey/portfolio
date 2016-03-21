@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resource :dropzone_files, only: [:create]
 
+  post 'tinymce/create' => 'tinymce#create', as: :tinymce_create
+
     # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

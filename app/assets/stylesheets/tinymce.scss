@@ -1,3 +1,12 @@
 .tinymce {
   //width: ;
 }
+
+#tinymce_messages {
+  float: left;
+}
+
+.msg_tinymce {
+  border: 1px solid green;
+  margin: 5px;
+}

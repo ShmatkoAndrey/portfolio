@@ -1,1 +1,8 @@
-= text_area_tag :content, '', :class => 'tinymce', :rows => 25, :cols => 120
+-#= tinymce
+= form_tag(tinymce_create_path, remote: true) do |f|
+  = text_area_tag :content, '', :class => 'tinymce', :rows => 25, :cols => 120
+  %br
+  = submit_tag 'Send', class: 'btn btn-default'
+
+#tinymce_messages
+  = render 'tinymce/messages', messages: messages_tiny

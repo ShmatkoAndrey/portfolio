@@ -17,4 +17,8 @@ module ApplicationHelper
     %w(dropzone devise omniauth googleMap tinymce)
   end
 
+  def messages_tiny
+    Message.all.reverse
+  end
+
 end
