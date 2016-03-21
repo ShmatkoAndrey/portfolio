@@ -42,3 +42,5 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'dropzonejs-rails'
 gem 'remotipart'
+
+gem 'tinymce-rails'

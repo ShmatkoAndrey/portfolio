@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def skills_list
-    %w(dropzone devise omniauth googleMap)
+    %w(dropzone devise omniauth googleMap tinymce)
   end
 
 end

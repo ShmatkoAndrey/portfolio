@@ -18,4 +18,5 @@
 //= require jquery.fullPage
 //= require jquery.slimscroll.min
 //= require dropzone
+//= require tinymce-jquery
 //= require_tree .
