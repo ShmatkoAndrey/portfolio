@@ -1,21 +1,17 @@
-- @videos = Video.all.reverse
+- @videos = videos
 - if @videos.any?
-  .col-md-6
-    #youtube_player
-  .col-md-6
-    #player-wrapper
-    - @videos.in_groups_of(2) do |group|
-      .row
-        - group.each do |video|
-          - if video
-            .col-md-6
-              .yt_video{onClick: "show_youtube('#{video.uid}')"}
-                .thumbnail
-                  = image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title, class: 'img-rounded')
-                  .caption
-                    %h5= video.title
-                    %p
-                      %span.glyphicon.glyphicon.glyphicon-thumbs-up
-                      = video.likes
-                      %span.glyphicon.glyphicon.glyphicon-thumbs-down
-                      = video.dislikes
+  - @videos.in_groups_of(2) do |group|
+    .row
+      - group.each do |video|
+        - if video
+          .col-md-6
+            .yt_video{onClick: "show_youtube('#{video.uid}')"}
+              .thumbnail
+                = image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title, class: 'img-rounded')
+                .caption
+                  %h5= video.title
+                  %p
+                    %span.glyphicon.glyphicon.glyphicon-thumbs-up
+                    = video.likes
+                    %span.glyphicon.glyphicon.glyphicon-thumbs-down
+                    = video.dislikes

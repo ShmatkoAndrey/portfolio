@@ -21,4 +21,7 @@ module ApplicationHelper
     Message.all.reverse
   end
 
+  def videos
+    Video.all.reverse
+  end
 end
