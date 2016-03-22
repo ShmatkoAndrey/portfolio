@@ -1,19 +1,21 @@
 - @videos = Video.all.reverse
 - if @videos.any?
-  .container
-    %h1 Latest videos
+  .col-md-6
+    #youtube_player
+  .col-md-6
     #player-wrapper
-    - @videos.in_groups_of(3) do |group|
+    - @videos.in_groups_of(2) do |group|
       .row
         - group.each do |video|
           - if video
-            .col-md-4
-              .yt_video.thumbnail.yt_thumbnail
-                %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :width => "560", :src => "https://www.youtube.com/embed/#{video.uid}"}
-                .caption
-                  %h3= video.title
-                  %p
-                    %span.glyphicon.glyphicon.glyphicon-thumbs-up
-                    = video.likes
-                    %span.glyphicon.glyphicon.glyphicon-thumbs-down
-                    = video.dislikes
+            .col-md-6
+              .yt_video{onClick: "show_youtube('#{video.uid}')"}
+                .thumbnail
+                  = image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title, class: 'img-rounded')
+                  .caption
+                    %h5= video.title
+                    %p
+                      %span.glyphicon.glyphicon.glyphicon-thumbs-up
+                      = video.likes
+                      %span.glyphicon.glyphicon.glyphicon-thumbs-down
+                      = video.dislikes
