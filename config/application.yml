@@ -1,6 +1,7 @@
 GMAIL_USER: 'galleryofficial@gmail.com'
 GMAIL_SECRET: 'qwertyazsxdc'
 GOOGLE_MAP: 'AIzaSyBs8K7eayFPLgyZzC-KZCLDgLz_N09-gTc'
+#GOOGLE_YOUTUBE: 'AIzaSyBs8K7eayFPLgyZzC-KZCLDgLz_N09-gTc'
 
 development:
   FB_KEY: '1997533793805209'

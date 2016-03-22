@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   post 'tinymce/create' => 'tinymce#create', as: :tinymce_create
 
-    # The priority is based upon order of creation: first created -> highest priority.
+  resources :videos, only: [:create]
+
+  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

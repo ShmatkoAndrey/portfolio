@@ -1,0 +1,19 @@
+- @videos = Video.all.reverse
+- if @videos.any?
+  .container
+    %h1 Latest videos
+    #player-wrapper
+    - @videos.in_groups_of(3) do |group|
+      .row
+        - group.each do |video|
+          - if video
+            .col-md-4
+              .yt_video.thumbnail.yt_thumbnail
+                %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :width => "560", :src => "https://www.youtube.com/embed/#{video.uid}"}
+                .caption
+                  %h3= video.title
+                  %p
+                    %span.glyphicon.glyphicon.glyphicon-thumbs-up
+                    = video.likes
+                    %span.glyphicon.glyphicon.glyphicon-thumbs-down
+                    = video.dislikes
