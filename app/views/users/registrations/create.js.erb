@@ -1,4 +1,4 @@
 $("#skill_devise").html("<%= escape_javascript(render('skills/devise', resource: User.new)) %>");
 <% @error.each do |error| %>
   $('#errors_login_out').append('<%= error %> <br />' );
-<% end %>
+<% end %> 
