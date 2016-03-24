@@ -13,8 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
 
     respond_to do |format|
-
       resource.save
+      @error = resource.errors.full_messages
       yield resource if block_given?
       if resource.persisted?
         if resource.active_for_authentication?
