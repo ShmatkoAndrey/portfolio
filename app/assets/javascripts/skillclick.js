@@ -18,4 +18,4 @@ function skillclick(skill) {
     }
 }
 
-$(document).ready(function (){skillclick('dropzone');});
+$(document).ready(function (){skillclick('deviseOmniauth');});

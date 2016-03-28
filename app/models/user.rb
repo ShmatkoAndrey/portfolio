@@ -1,9 +1,33 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates :email, :presence => true, :uniqueness => {:case_sensitive => false }
+
+  has_many :identities
+
+  def self.find_for_oauth(auth, signed_in_resource = nil)
+    identity = Identity.find_for_oauth(auth)
+    user = signed_in_resource ? signed_in_resource : identity.user
+    if user.nil?
+      email = auth.extra.raw_info.email
+      user = User.where(:email => email).first if email
+      if user.nil?
+        user = User.new(
+            email: auth.extra.raw_info.email,
+            password: Devise.friendly_token[0,20]
+        )
+        user.save!
+      end
+    end
+
+    if identity.user != user
+      identity.user = user
+      identity.save!
+    end
+    user
+  end
 
 end

@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def skills_list
-    %w(dropzone devise omniauth googleMap tinymce youTube)
+    %w(deviseOmniauth dropzone googleMap tinymce youTube)
   end
 
   def messages_tiny
