@@ -14,13 +14,13 @@ window.onload = function () {
         }
         else if(w <= 900 && w > 640) {
             div.style.fontSize = '7em';
-            txt.style.fontSize = '1.3em';
-            skills.style.fontSize = '1.3em';
+            txt.style.fontSize = '1em';
+            skills.style.fontSize = '1em';
         }
         else if(w <= 640 && w > 480) {
             div.style.fontSize = '5em';
-            txt.style.fontSize = '1.3em';
-            skills.style.fontSize = '1.3em';
+            txt.style.fontSize = '1em';
+            skills.style.fontSize = '1em';
         }
         else if(w <= 480 && w > 350) {
             div.style.fontSize = '3.5em';

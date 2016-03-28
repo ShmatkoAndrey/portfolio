@@ -43,3 +43,49 @@
     Back
   %br
   = render 'skills/devise/omniauth'
+
+
+-#.shadow-forms
+-#  .message.warning
+-#    .login-head
+-#      %h2 Client Login
+-#    %form
+-#      %input.text{:onblur => "if (this.value == '') {this.value = 'Username';}", :onfocus => "this.value = '';", :type => "text", :value => "Username"}/
+-#      %input{:onblur => "if (this.value == '') {this.value = 'Password';}", :onfocus => "this.value = '';", :type => "password", :value => "Password"}/
+-#      .p-container
+-#        %label.checkbox
+-#          %input{:checked => "checked", :name => "checkbox", :type => "checkbox"}/
+-#          = succeed "Remember" do
+-#            %i
+-#        %h6
+-#          %a{:href => "#"} Forgot a Password ?
+-#        .clear
+-#      .submit
+-#        %input{:onclick => "myFunction()", :type => "submit", :value => "LOG IN"}/
+-#      %span
+-#      .buttons
+-#        %h4 Login with your Facebook Or Twitter accounts
+-#        %ul
+-#          %li.fb
+-#            %a.hvr-bounce-to-bottom{:href => "#"} FACEBOOK
+-#          %li.twr
+-#            %a.hvr-bounce-to-top{:href => "#"} TWITTER
+-#          .clear
+-#    .sign-up
+-#      %a.sign-left{:href => "#"} Want new account ?
+-#      %a.signup.play-icon.popup-with-zoom-anim{:href => "#small-dialog2"} Sign Up
+-#      / pop-up-box
+-#      %script{:src => "js/modernizr.custom.min.js", :type => "text/javascript"}
+-#      %link{:href => "css/popuo-box.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+-#      %script{:src => "js/jquery.magnific-popup.js", :type => "text/javascript"}
+-#      / //pop-up-box
+-#      #small-dialog2.mfp-hide
+-#        .signup
+-#          %h3 Signup
+-#          %h4
+-#            %a{:href => "#"} let's get started
+-#          %input.email{:placeholder => "User name", :required => "", :type => "text"}/
+-#          %input.email{:placeholder => "Email adress", :required => "", :type => "text"}/
+-#          %input{:placeholder => "Password", :required => "", :type => "password"}/
+-#          %input{:type => "submit", :value => "Signup"}/
+-#    .clear
