@@ -1,0 +1,3 @@
+- skills_list.each do |skill|
+  %div{:id => "skill_#{skill}", style: 'display: none;', class: 'skill_show_block'}
+    = render "skills/#{skill}"

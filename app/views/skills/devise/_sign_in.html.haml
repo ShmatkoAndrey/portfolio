@@ -1,49 +1,46 @@
 #errors_login_out
-#log_in
-  = form_for(User.new, as: resource_name, url: session_path(resource_name), remote: true) do |f|
-    .form-group
-      = f.label :email
-      %br/
-      = f.email_field :email, class: 'form-control'
-    .form-group
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: 'off', class: 'form-control'
-    - if devise_mapping.rememberable?
-      .form-group
-        = f.check_box :remember_me, class: 'form-control'
-        = f.label :remember_me
-    .actions
-      = f.submit 'Log in', class: 'btn btn-default'
-  %a{onClick: 'login_or_signup("signup")'}
-    Sign up
-  %br
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)#, remote: true
+.jumbotron
+  #log_in
+    = form_for(User.new, as: resource_name, url: session_path(resource_name), remote: true) do |f|
+      .input-group
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-user
+        = f.email_field :email, class: 'form-control login_field', :placeholder => 'Email'
+      .input-group
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-lock
+        = f.password_field :password, autocomplete: 'off', class: 'form-control login_field', :placeholder => 'Password'
+      - if devise_mapping.rememberable?
+        .form-group
+          = f.check_box :remember_me, class: 'form-control'
+          = f.label :remember_me
+      .actions
+        = f.submit 'Log in', class: 'btn btn-default'
+    %a{onClick: 'login_or_signup("signup")'}
+      Sign up
     %br
+    = render 'skills/devise/omniauth'
 
-#sign_up{style: 'display: none;'}
-  = form_for(User.new, as: resource_name, url: registration_path(resource_name), remote: true) do |f|
-    =# devise_error_messages!
-    .form-group
-      = f.label :email
-      %br/
-      = f.email_field :email, class: 'form-control'
-    .form-group
-      = f.label :password
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
-      %br/
-      = f.password_field :password, autocomplete: 'off', class: 'form-control'
-    .form-group
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
-    .actions
-      = f.submit 'Sign up', class: 'btn btn-default'
-  %a{onClick: 'login_or_signup("login")'}
-    Back
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to "Sign up with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)#, remote: true
+  #sign_up{style: 'display: none;'}
+    = form_for(User.new, as: resource_name, url: registration_path(resource_name), remote: true) do |f|
+      .input-group
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-user
+        = f.email_field :email, class: 'form-control login_field', :placeholder => 'Email'
+      .input-group
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-lock
+        = f.password_field :password, autocomplete: 'off', class: 'form-control login_field', :placeholder => 'Password'
+      .input-group
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-lock
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control login_field', :placeholder => 'Password confirmation'
+      .actions
+        = f.submit 'Sign up', class: 'btn btn-default'
+    %a{onClick: 'login_or_signup("login")'}
+      Back
     %br
+    = render 'skills/devise/omniauth'

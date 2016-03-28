@@ -1,0 +1,4 @@
+-#- resource_class.omniauth_providers.each do |provider|
+-#  = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+-#  %br
+= link_to image_tag('https://cdn2.iconfinder.com/data/icons/micon-social-pack/512/facebook-128.png', class: 'omniauth_icons'),  omniauth_authorize_path(resource_name, 'facebook')

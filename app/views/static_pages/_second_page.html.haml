@@ -7,6 +7,4 @@
           %a{href: '#', onClick: "skillclick('#{skill}')"} #{skill.first.upcase + skill[1..-1]}
   #demo_skill
     #all_skills
-      - skills_list.each do |skill|
-        %div{:id => "skill_#{skill}", style: 'display: none;', class: 'skill_show_block'}
-          = render "skills/#{skill}"
+      = render 'skills/allSkills'
