@@ -26,8 +26,6 @@
 .col-md-6
   .jumbotron
     - if user_signed_in?
-      Hi,
-      = current_user.email
-      = link_to('LogOut', destroy_user_session_path, :remote => true)
+      = render 'skills/devise/profile', resource: resource
     - else
       = render 'skills/devise/sign_in', resource: resource

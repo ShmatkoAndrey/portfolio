@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
 
   has_many :identities
 
+  mount_uploader :avatar, AvatarUploader
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
+    puts auth.info.image
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
     if user.nil?
@@ -16,6 +19,7 @@ class User < ActiveRecord::Base
       user = User.where(:email => email).first if email
       if user.nil?
         user = User.new(
+            remote_avatar_url: auth.info.image.gsub('http://','https://') + '?type=large',
             email: auth.extra.raw_info.email,
             password: Devise.friendly_token[0,20]
         )

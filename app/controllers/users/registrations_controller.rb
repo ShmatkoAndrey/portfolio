@@ -2,6 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
   skip_before_filter :verify_authenticity_token, :only => [:destroy, :create]
+  # prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
+
 
   # GET /resource/sign_up
   def new
@@ -39,7 +41,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    current_user.update(account_update_params)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :avatar)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:email, :password, :current_password, :avatar)
   end
 
   # DELETE /resource
@@ -58,6 +71,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def update_resource(resource, params)
+    puts 'upd'.red
+    resource.update_without_password(params)
+  end
+
   def sign_up(resource_name, resource)
     sign_in(resource_name, resource)
   end
@@ -69,7 +87,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update) << :attribute
+  #   devise_parameter_sanitizer.for(:account_update) << :avatar
   # end
 
   # The path used after sign up.

@@ -24,4 +24,17 @@ module ApplicationHelper
   def videos
     Video.all.reverse
   end
+
+  def avatar(user, size = '150x150')
+    unless user.nil?
+      if user.avatar.nil? || user.avatar.blank?
+        image_tag('avatar.png', size: size, id: 'avatar')
+      else
+        if user.avatar.file.exists?
+          image_tag(user.avatar, size: size, id: 'avatar')
+        end
+      end
+    end
+  end
+
 end
