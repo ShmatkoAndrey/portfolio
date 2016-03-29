@@ -24,8 +24,7 @@
     powerful, flexible, and do as little as possible. Any developer can create strategies for OmniAuth that can
     authenticate users via disparate systems. OmniAuth strategies have been created for everything from Facebook to LDAP.
 .col-md-6
-  .jumbotron
-    - if user_signed_in?
-      = render 'skills/devise/profile', resource: resource
-    - else
-      = render 'skills/devise/sign_in', resource: resource
+  - if user_signed_in?
+    = render 'skills/devise/profile', resource: resource
+  - else
+    = render 'skills/devise/sign_in', resource: resource

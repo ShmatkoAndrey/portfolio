@@ -1,91 +1,48 @@
 #errors_login_out
-#log_in
+#log_in.form-2
+  %h1
+    %span.log-in Log in
+    or
+    %span.sign-up{onClick: 'login_or_signup("signup")'} sign up
   = form_for(User.new, as: resource_name, url: session_path(resource_name), remote: true) do |f|
-    .input-group
-      %span.input-group-addon
-        %i.glyphicon.glyphicon-user
-      = f.email_field :email, class: 'form-control login_field', :placeholder => 'Email'
-    .input-group
-      %span.input-group-addon
-        %i.glyphicon.glyphicon-lock
-      = f.password_field :password, autocomplete: 'off', class: 'form-control login_field', :placeholder => 'Password'
-    - if devise_mapping.rememberable?
-      %label.checkbox-inline
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit 'Log in', class: 'btn btn-default'
-  %a{onClick: 'login_or_signup("signup")'}
-    Sign up
-  %br
-  = render 'skills/devise/omniauth'
+    %p.float
+      %label{:for => 'login'}
+        %i.icon-user>
+        Username
+      = f.email_field :email, class: '', :placeholder => 'Email', type: 'text'
+    %p.float
+      %label{:for => 'password'}
+        %i.icon-lock>
+        Password
+      = f.password_field :password, autocomplete: 'off', class: 'showpassword', :placeholder => 'Password'
+    %p.clearfix
+      = link_to 'Log in Facebook', omniauth_authorize_path(resource_name, 'facebook'), class:'log-twitter'
+      = f.submit 'Log in', class: ''
 
 #sign_up{style: 'display: none;'}
-  = form_for(User.new, as: resource_name, url: registration_path(resource_name), remote: true) do |f|
-    .input-group
-      %span.input-group-addon
-        %i.glyphicon.glyphicon-user
-      = f.email_field :email, class: 'form-control login_field', :placeholder => 'Email'
-    .input-group
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
-      %span.input-group-addon
-        %i.glyphicon.glyphicon-lock
-      = f.password_field :password, autocomplete: 'off', class: 'form-control login_field', :placeholder => 'Password'
-    .input-group
-      %span.input-group-addon
-        %i.glyphicon.glyphicon-lock
-      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control login_field', :placeholder => 'Password confirmation'
-    .actions
-      = f.submit 'Sign up', class: 'btn btn-default'
-  %a{onClick: 'login_or_signup("login")'}
-    Back
-  %br
-  = render 'skills/devise/omniauth'
+  .form-2
+    %h1
+      %span.sign-up sign up
+      or
+      %span.log-in{onClick: 'login_or_signup("login")'} Log in
+    = form_for(User.new, as: resource_name, url: registration_path(resource_name), remote: true) do |f|
+      %br
+      %p
+        %label{:for => 'login'}
+          %i.icon-user>
+          Username
+        = f.email_field :email, class: '', :placeholder => 'Email', type: 'text'
+      %p
+        %label{:for => 'password'}
+          %i.icon-lock>
+          Password
+        = f.password_field :password, autocomplete: 'off', class: 'showpassword', :placeholder => 'Password'
+      %p
+        %label{:for => 'password'}
+          %i.icon-lock>
+          Confirmation
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'showpassword', :placeholder => 'Password confirmation'
 
-
--#.shadow-forms
--#  .message.warning
--#    .login-head
--#      %h2 Client Login
--#    %form
--#      %input.text{:onblur => "if (this.value == '') {this.value = 'Username';}", :onfocus => "this.value = '';", :type => "text", :value => "Username"}/
--#      %input{:onblur => "if (this.value == '') {this.value = 'Password';}", :onfocus => "this.value = '';", :type => "password", :value => "Password"}/
--#      .p-container
--#        %label.checkbox
--#          %input{:checked => "checked", :name => "checkbox", :type => "checkbox"}/
--#          = succeed "Remember" do
--#            %i
--#        %h6
--#          %a{:href => "#"} Forgot a Password ?
--#        .clear
--#      .submit
--#        %input{:onclick => "myFunction()", :type => "submit", :value => "LOG IN"}/
--#      %span
--#      .buttons
--#        %h4 Login with your Facebook Or Twitter accounts
--#        %ul
--#          %li.fb
--#            %a.hvr-bounce-to-bottom{:href => "#"} FACEBOOK
--#          %li.twr
--#            %a.hvr-bounce-to-top{:href => "#"} TWITTER
--#          .clear
--#    .sign-up
--#      %a.sign-left{:href => "#"} Want new account ?
--#      %a.signup.play-icon.popup-with-zoom-anim{:href => "#small-dialog2"} Sign Up
--#      / pop-up-box
--#      %script{:src => "js/modernizr.custom.min.js", :type => "text/javascript"}
--#      %link{:href => "css/popuo-box.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
--#      %script{:src => "js/jquery.magnific-popup.js", :type => "text/javascript"}
--#      / //pop-up-box
--#      #small-dialog2.mfp-hide
--#        .signup
--#          %h3 Signup
--#          %h4
--#            %a{:href => "#"} let's get started
--#          %input.email{:placeholder => "User name", :required => "", :type => "text"}/
--#          %input.email{:placeholder => "Email adress", :required => "", :type => "text"}/
--#          %input{:placeholder => "Password", :required => "", :type => "password"}/
--#          %input{:type => "submit", :value => "Signup"}/
--#    .clear
+      %p.clearfix
+        = link_to 'Sign up Facebook', omniauth_authorize_path(resource_name, 'facebook'), class:'log-twitter'
+        = f.submit 'Sign up', class: ''
