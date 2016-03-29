@@ -15,3 +15,8 @@
 /.idea
 
 /public/uploads
+
+.ruby-gemset
+.ruby-version
+config/application.yml
+config/database.yml
