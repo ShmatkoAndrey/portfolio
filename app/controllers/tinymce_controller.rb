@@ -1,7 +1,5 @@
 class TinymceController < ApplicationController
 
-  attr_accessor :content
-
   def create
     unless params[:content].blank?
       @content = params[:content].html_safe
