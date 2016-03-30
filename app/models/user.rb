@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
-    puts auth.info.image
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
     if user.nil?

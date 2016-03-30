@@ -42,6 +42,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     current_user.update(account_update_params)
+    puts "#{current_user.errors.full_messages}".red
+    # unless account_update_params[:avatar].nil?
+    #   user = current_user
+    #   user.avatar = account_update_params[:avatar]
+    #   user.save
+    #   puts "#{user.errors.full_messages}".red
+    # end
     respond_to do |format|
       format.js
     end
@@ -52,7 +59,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :current_password, :avatar)
+    params.require(:user).permit(:email, :avatar)
   end
 
   # DELETE /resource
@@ -72,6 +79,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
+    puts 'upd'.red
     resource.update_without_password(params)
   end
 
@@ -79,23 +87,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(resource_name, resource)
   end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+# If you have extra params to permit, append them to the sanitizer.
+# def configure_sign_up_params
+#   devise_parameter_sanitizer.for(:sign_up) << :attribute
+# end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update) << :avatar
-  # end
+# If you have extra params to permit, append them to the sanitizer.
+# def configure_account_update_params
+#   devise_parameter_sanitizer.for(:account_update) << :avatar
+# end
 
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+# The path used after sign up.
+# def after_sign_up_path_for(resource)
+#   super(resource)
+# end
 
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+# The path used after sign up for inactive accounts.
+# def after_inactive_sign_up_path_for(resource)
+#   super(resource)
+# end
 end
