@@ -42,9 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     current_user.update(account_update_params)
-    respond_to do |format|
-      format.js
-    end
+    @error = current_user.errors.full_messages
   end
 
   def sign_up_params
@@ -57,7 +55,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    super
+    resource.destroy
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+
   end
 
   # GET /resource/cancel

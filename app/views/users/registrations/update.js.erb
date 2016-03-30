@@ -1,1 +1,4 @@
 $("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmniauth')) %>");
+<% @error.each do |error| %>
+  $('#errors_update').append('<%= error %> <br />' );
+<% end %>

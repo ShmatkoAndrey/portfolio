@@ -3,11 +3,12 @@
   = current_user.email
   = link_to('LogOut', destroy_user_session_path, :remote => true)
 
+  #errors_update
   = form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }, remote: true) do |f|
     .form-group
       = f.label :email
       %br/
-      = f.email_field :email, class: "form-control"
+      = f.email_field :email, class: 'form-control'
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
@@ -34,4 +35,6 @@
       = f.file_field :avatar
 
     .form-group
-      = f.submit "Update", class: "btn btn-default "
+      = f.submit 'Update', class: 'btn btn-default'
+
+  = button_to 'Cancel my account', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, remote: true

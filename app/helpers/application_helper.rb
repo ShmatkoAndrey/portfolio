@@ -27,12 +27,10 @@ module ApplicationHelper
 
   def avatar(user, size = '150x150')
     unless user.nil?
-      if user.avatar.nil? || user.avatar.blank?
+      if user.avatar.nil? || user.avatar.blank? || !user.avatar.file.exists?
         image_tag('avatar.png', size: size, id: 'avatar')
       else
-        if user.avatar.file.exists?
-          image_tag(user.avatar, size: size, id: 'avatar')
-        end
+        image_tag(user.avatar, size: size, id: 'avatar')
       end
     end
   end
