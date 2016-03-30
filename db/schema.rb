@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160329142602) do
 
   create_table "dropzone_files", force: :cascade do |t|
     t.string   "file"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,11 +68,5 @@ ActiveRecord::Schema.define(version: 20160329142602) do
   end
 
   add_index "videos", ["uid"], name: "index_videos_on_uid", using: :btree
-
-  create_table "youtubes", force: :cascade do |t|
-    t.string   "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

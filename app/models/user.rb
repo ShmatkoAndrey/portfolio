@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => {:case_sensitive => false }
 
   has_many :identities
+  has_many :dropzone_files
 
   mount_uploader :avatar, AvatarUploader
 

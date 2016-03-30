@@ -1,11 +1,19 @@
 .col-md-5.large_height
-  = form_tag '/dropzone_files', method: :post, class: 'dropzone drop_form', id: 'media-dropzone' do
-    .fallback
-      = file_field_tag 'media', multiple: true
+  - if user_signed_in?
+    = form_tag '/dropzone_files', method: :post, class: 'dropzone drop_form', id: 'media-dropzone' do
+      .fallback
+        = file_field_tag 'media', multiple: true
+  - else
+    = render 'skills/devise/sign_in'
   #image_show
 .col-md-7
   #media-contents
     - dropzone_files.reverse.each do |media|
       - if media.file.file.exists?
         .thumbnail{onClick: "showImage('#{media.file.url}')"}
+          .avatar_drpz
+            = avatar media.user, '30x30'
+          .userinfo_drpz
+            = media.user.email.split('@').first
+          %br
           = image_tag media.file.url
