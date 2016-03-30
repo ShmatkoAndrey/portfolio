@@ -4,4 +4,3 @@ $(document).ready ->
     resize: false
     loopHorizontal: false
     css3: true
-  return

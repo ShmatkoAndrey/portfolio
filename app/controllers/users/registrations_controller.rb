@@ -42,13 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     current_user.update(account_update_params)
-    puts "#{current_user.errors.full_messages}".red
-    # unless account_update_params[:avatar].nil?
-    #   user = current_user
-    #   user.avatar = account_update_params[:avatar]
-    #   user.save
-    #   puts "#{user.errors.full_messages}".red
-    # end
     respond_to do |format|
       format.js
     end

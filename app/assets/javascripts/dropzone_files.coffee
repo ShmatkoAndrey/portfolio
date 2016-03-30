@@ -1,7 +1,6 @@
 @showImage = (url) ->
   code = '<img src="' + url + '" />'
   $('#image_show').html code
-  return
 
 Dropzone.autoDiscover = false
 if $('#media-dropzone')
@@ -19,4 +18,3 @@ if $('#media-dropzone')
 
   appendContent = (imageUrl, mediaId) ->
     $('#media-contents').prepend '<div class="thumbnail" style="border: 1px solid red;" onClick="showImage(\'' + imageUrl + '\')">' + '<img src="' + imageUrl + '"/></div>'
-    return
