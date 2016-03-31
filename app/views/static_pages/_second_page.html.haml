@@ -4,7 +4,7 @@
     %ul.nav.nav-pills.nav-justified
       - skills_list.each do |skill|
         %li{:role => 'presentation', id: "li_skill_#{skill}"}
-          %a{href: '#', onClick: "skillclick('#{skill}')"} #{skill.first.upcase + skill[1..-1]}
+          %a{href: '#firstPage/slide2', onClick: "skillclick('#{skill}')"} #{skill.first.upcase + skill[1..-1]}
   #demo_skill
     #all_skills
       = render 'skills/allSkills'
