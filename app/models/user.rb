@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     if user.nil?
       email = auth.extra.raw_info.email
       user = User.where(:email => email).first if email
+      user.update(remote_avatar_url: auth.info.image.gsub('http://','https://') + '?type=large') unless user.avatar?
       if user.nil?
         user = User.new(
             remote_avatar_url: auth.info.image.gsub('http://','https://') + '?type=large',

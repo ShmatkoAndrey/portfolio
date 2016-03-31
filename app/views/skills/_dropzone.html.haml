@@ -12,8 +12,8 @@
       - if media.file.file.exists?
         .thumbnail{onClick: "showImage('#{media.file.url}')"}
           .avatar_drpz
-            = avatar media.user, '30x30'
+            -#= avatar media.user, '30x30'
           .userinfo_drpz
-            = media.user.email.split('@').first
+            -#= media.user.email.split('@').first
           %br
           = image_tag media.file.url
