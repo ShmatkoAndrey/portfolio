@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: gallery_development
+  pool: 5
+  host: localhost
+  username: postgres
+  password: qazwsxedc1
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: gallery_test
+  pool: 5
+  host: localhost
+  username: postgres
+  password:  qazwsxedc1
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: gallery_production
+  pool: 5
+  host: localhost
+  username: postgres
+  password: qazwsxedc1

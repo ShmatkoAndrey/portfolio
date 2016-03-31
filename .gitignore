@@ -16,6 +16,7 @@
 
 /public/uploads
 
+/config/database.yml
 /.ruby-gemset
 /.ruby-version
 /.ruby-gemset~
