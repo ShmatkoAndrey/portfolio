@@ -4,6 +4,12 @@
 
 Dropzone.autoDiscover = false
 $(document).ready ->
+  initDropzone()
+
+appendContent = (imageUrl, mediaId) ->
+  $('#media-contents').prepend '<div class="thumbnail" style="border: 1px solid red;" onClick="showImage(\'' + imageUrl + '\')">' + '<img src="' + imageUrl + '"/></div>'
+
+@initDropzone = ->
   if $('#media-dropzone').length > 0
     mediaDropzone = new Dropzone('#media-dropzone')
     mediaDropzone.on 'success', (file, responseText) ->
@@ -12,6 +18,3 @@ $(document).ready ->
       setTimeout (->
         _this.removeAllFiles()
       ), 5000
-
-    appendContent = (imageUrl, mediaId) ->
-      $('#media-contents').prepend '<div class="thumbnail" style="border: 1px solid red;" onClick="showImage(\'' + imageUrl + '\')">' + '<img src="' + imageUrl + '"/></div>'

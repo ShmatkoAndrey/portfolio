@@ -5,4 +5,4 @@ $('#log_in #user_email').val('<%= @params_session[0] %>');
 
 // Обновление скилов, требующих регистрацию
 $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone')) %>");
-//js подключить
+initDropzone();

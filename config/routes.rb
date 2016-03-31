@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/home' => 'static_pages#home'
   root  'static_pages#home'
 
-  resource :dropzone_files, only: [:create]
+  resource :dropzone_files, only: [:create, :destroy]
 
   post 'tinymce/create' => 'tinymce#create', as: :tinymce_create
 

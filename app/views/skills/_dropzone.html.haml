@@ -8,12 +8,19 @@
   #image_show
 .col-md-7
   #media-contents
-    - dropzone_files.reverse.each do |media|
-      - if media.file.file.exists?
-        .thumbnail{onClick: "showImage('#{media.file.url}')"}
-          .avatar_drpz
-            = avatar media.user, '30x30' unless media.user.nil?
-          .userinfo_drpz
-            = media.user.email.split('@').first unless media.user.nil?
-          %br
-          = image_tag media.file.url
+    - dropzone_files.reverse.in_groups_of(2) do |group|
+      .row
+        - group.each do |media|
+          - if media
+            .col-md-6
+              .thumbnail
+                .avatar_drpz
+                  = avatar media.user, '30x30' unless media.user.nil?
+                .userinfo_drpz
+                  = media.user.email.split('@').first unless media.user.nil?
+                %br
+                - if img(media)
+                  = image_tag media.file.url, onClick: "showImage('#{media.file.url}')"
+                - else
+                  = link_to image_tag('file.png', size: '150x150'), media.file.url, target: '_blank'
+                = link_to 'x', dropzone_files_path(media.id), method: :delete, remote: true, class: 'delete' if media.user == current_user

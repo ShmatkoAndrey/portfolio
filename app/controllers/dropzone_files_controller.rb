@@ -10,9 +10,8 @@ class DropzoneFilesController < ApplicationController
     end
   end
 
-  # def delete_media
-  #   Media.where(id: params[:media_contents]).destroy_all
-  #   redirect_to root_url
-  # end
+  def destroy
+    DropzoneFile.find(params[:format]).destroy
+  end
 
 end
