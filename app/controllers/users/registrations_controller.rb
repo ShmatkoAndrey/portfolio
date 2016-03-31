@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-
+    @params_reg = [sign_up_params[:email]]
     respond_to do |format|
       resource.save
       @error = resource.errors.full_messages
@@ -46,7 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :avatar)
+    params.require(:user).permit(:email, :password, :password_confirmation, :avatar)
   end
 
   def account_update_params

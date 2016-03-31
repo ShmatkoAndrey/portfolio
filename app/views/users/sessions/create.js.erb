@@ -1,5 +1,7 @@
 $("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmniauth')) %>");
-$('#errors_login_out').html('<%= @error %>' );
+$('#errors_login').html('<%= @error %>' );
+
+$('#log_in #user_email').val('<%= @params_session[0] %>');
 
 // Обновление скилов, требующих регистрацию
 $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone')) %>");
