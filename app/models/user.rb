@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :identities, dependent: :destroy
   has_many :dropzone_files, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
