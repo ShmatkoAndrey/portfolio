@@ -3,4 +3,5 @@ $(document).ready ->
     scrollOverflow: true
     resize: false
     loopHorizontal: false
-    css3: true
+    css3: true,
+    anchors:['firstPage']
