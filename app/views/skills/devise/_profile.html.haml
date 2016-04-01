@@ -1,23 +1,21 @@
-.jumbotron
+.jumbotron.form-2
   Hi,
   = current_user.email
   = link_to('LogOut', destroy_user_session_path, :remote => true)
 
   #errors_update
   = form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }, remote: true) do |f|
-    .form-group
-      = f.label :email
-      %br/
-      = f.email_field :email, class: 'form-control'
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %div
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %p
+      .pull-left
+        Email
+      = f.email_field :email, class: 'email_update', :placeholder => 'Email', type: 'text'
 
-    .form-group
+    .form-group.update_avatar.pull-left
       = avatar current_user
-      = f.file_field :avatar
+      .fileUpload.btn.btn-success
+        Browse
+        = f.file_field :avatar, class: 'upload'
 
-    .form-group
-      = f.submit 'Update', class: 'btn btn-default'
-
-  = button_to 'Cancel my account', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, remote: true
+    %p.clearfix
+      = link_to 'Destroy acc', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, remote: true, class: 'log-destroy'
+      = f.submit 'Update', class: ''

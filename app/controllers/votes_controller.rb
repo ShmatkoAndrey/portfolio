@@ -7,7 +7,6 @@ class VotesController < ApplicationController
       @file.destroy
       @destroy = true
     end
-
   end
 
 end
