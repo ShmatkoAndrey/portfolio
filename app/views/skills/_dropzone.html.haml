@@ -13,22 +13,5 @@
         - group.each do |media|
           - if media
             .col-md-6
-              .thumbnail
-                .avatar_drpz
-                  = avatar media.user, '30x30' unless media.user.nil?
-                .userinfo_drpz
-                  = media.user.email.split('@').first unless media.user.nil?
-                %br
-                - if img(media)
-                  = image_tag media.file.url, onClick: "showImage('#{media.file.url}')"
-                - else
-                  = link_to image_tag('file.png', size: '150x150'), media.file.url, target: '_blank'
-
-                - user_vote = user_vote? media.id if user_signed_in?
-                = link_to '▲', votes_path(media.id, like: true), method: :post, remote: true, class: 'like' if user_signed_in? && !user_vote
-                = votes_cnt(media)
-                = link_to '▼', votes_path(media.id, like: false), method: :post, remote: true, class: 'like' if user_signed_in? &&!user_vote
-
-                = link_to 'test unlimit ▼', votes_path(media.id, like: false), method: :post, remote: true, class: 'like' if user_signed_in?
-
-                = link_to 'x', dropzone_files_path(media.id), method: :delete, remote: true, class: 'pull-right delete' if media.user == current_user
+              .thumbnail{id: "file_#{media.id}"}
+                = render 'skills/dropzone/file', media: media

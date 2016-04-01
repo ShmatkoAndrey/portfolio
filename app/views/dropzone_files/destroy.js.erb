@@ -1,2 +1,1 @@
-$("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone')) %>");
-initDropzone();
+$("#skill_dropzone .thumbnail#file_<%= @file.id %>").remove();

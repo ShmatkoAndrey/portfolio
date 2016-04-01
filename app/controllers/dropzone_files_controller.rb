@@ -11,7 +11,7 @@ class DropzoneFilesController < ApplicationController
   end
 
   def destroy
-    DropzoneFile.find(params[:format]).destroy
+    @file = DropzoneFile.find(params[:format]).destroy
   end
 
 end
