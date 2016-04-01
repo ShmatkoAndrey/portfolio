@@ -47,3 +47,6 @@ gem 'tinymce-rails'
 
 gem 'yt'
 gem 'rails-observers'
+
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'

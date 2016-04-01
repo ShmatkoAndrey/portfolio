@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   }
 
   get 'static_pages/home' => 'static_pages#home'
+  get 'static_pages/paginate' => 'static_pages#paginate'
   root  'static_pages#home'
 
   resource :dropzone_files, only: [:create, :destroy]

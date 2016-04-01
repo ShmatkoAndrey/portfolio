@@ -8,10 +8,19 @@
   #image_show
 .col-md-7
   #media-contents
-    - dropzone_files.reverse.in_groups_of(2) do |group|
+    = paginate @files,  :theme => 'twitter-bootstrap-3',
+                    :pagination_class => 'pagination-sm',
+                    :params => { :controller => 'static_pages', :action => 'paginate'},
+                     remote: true
+    - @files.each do |group|
       .row
         - group.each do |media|
           - if media
-            .col-md-6
+            .col-md-4
               .thumbnail{id: "file_#{media.id}"}
                 = render 'skills/dropzone/file', media: media
+
+    = paginate @files,  :theme => 'twitter-bootstrap-3',
+                    :pagination_class => 'pagination-sm',
+                    :params => { :controller => 'static_pages', :action => 'paginate'},
+                     remote: true
