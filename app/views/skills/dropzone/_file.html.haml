@@ -10,10 +10,10 @@
     = link_to image_tag('file.png', size: '150x150'), media.file.url, target: '_blank'
 
   - user_vote = user_vote? media.id if user_signed_in?
-  = link_to '▲', votes_path(media.id, like: true), method: :post, remote: true, class: 'like' if user_signed_in? && !user_vote
+  = link_to '▲', votes_path(media.id, like: true, page: page), method: :post, remote: true, class: 'like' if user_signed_in? && !user_vote
   = votes_cnt(media)
-  = link_to '▼', votes_path(media.id, like: false), method: :post, remote: true, class: 'like' if user_signed_in? &&!user_vote
+  = link_to '▼', votes_path(media.id, like: false, page: page), method: :post, remote: true, class: 'like' if user_signed_in? &&!user_vote
 
-  = link_to 'test unlimit ▼', votes_path(media.id, like: false), method: :post, remote: true, class: 'like' if user_signed_in?
+  = link_to 'test unlimit ▼', votes_path(media.id, like: false, page: page), method: :post, remote: true, class: 'like' if user_signed_in?
 
-  = link_to 'x', dropzone_files_path(media.id), method: :delete, remote: true, class: 'pull-right delete' if media.user == current_user
+  = link_to 'x', dropzone_files_path(media.id, page: page), method: :delete, remote: true, class: 'pull-right delete' if media.user == current_user

@@ -4,7 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, :only => [:destroy, :create]
   # prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
 
-
   # GET /resource/sign_up
   def new
     super
@@ -12,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    @page = params[:page]
     build_resource(sign_up_params)
     @params_reg = [sign_up_params[:email]]
     respond_to do |format|
@@ -57,7 +57,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def destroy
     resource.destroy
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
-
   end
 
   # GET /resource/cancel
@@ -72,7 +71,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    puts 'upd'.red
     resource.update_without_password(params)
   end
 

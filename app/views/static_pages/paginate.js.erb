@@ -1,2 +1,2 @@
-$("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone')) %>");
+$("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', page: @page)) %>");
 initDropzone();

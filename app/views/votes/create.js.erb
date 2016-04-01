@@ -1,5 +1,6 @@
 <% if @destroy %>
-  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").remove();
+  $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', page: @page)) %>");
+  initDropzone();
 <% else %>
-  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").html("<%= escape_javascript(render('skills/dropzone/file', media: @file)) %>");
+  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").html("<%= escape_javascript(render('skills/dropzone/file', media: @file, page: @page)) %>");
 <% end %>
