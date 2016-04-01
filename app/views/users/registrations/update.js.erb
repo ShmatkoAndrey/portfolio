@@ -1,4 +1,8 @@
-$("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmniauth')) %>");
-<% @error.each do |error| %>
-  $('#errors_update').append('<%= error %> <br />' );
+<% if current_user.valid? %>
+  $("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmniauth')) %>");
+<% else %>
+$('#errors_update').html('');
+  <% @error.each do |error| %>
+    $('#errors_update').append('<%= error %> <br />');
+  <% end %>
 <% end %>

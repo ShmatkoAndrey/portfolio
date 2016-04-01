@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # validates :email, :presence => true, :uniqueness => {:case_sensitive => false }, format: { with: VALID_EMAIL_REGEX }
+  # validates :email, :presence => true, :uniqueness => {:case_sensitive => false }, format: { with: VALID_EMAIL_REGEX }, on: [:update]
+  # validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: [:create , :update] }
 
 
   has_many :identities, dependent: :destroy
