@@ -33,7 +33,9 @@
 .fileUpload {
   position: relative;
   overflow: hidden;
-  margin: 10px !important;
+  margin: 0 !important;
+  width: 100%;
+  border-radius: 0 !important;
 }
 .fileUpload input.upload {
   position: absolute;
@@ -48,9 +50,13 @@
 }
 
 .update_avatar {
-  margin-left: 3px;
+  //margin-left: 3px;
+  width: 100%;
 }
 
+#avatar{
+  width: 100%;
+}
 
 
 .form-2 .log-destroy {

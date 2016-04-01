@@ -25,7 +25,7 @@ module ApplicationHelper
     Video.all.reverse
   end
 
-  def avatar(user, size = '150x150')
+  def avatar(user, size = '1500x1500')
     unless user.nil?
       if user.avatar.nil? || user.avatar.blank? || !user.avatar.file.exists?
         image_tag('avatar.png', size: size, id: 'avatar')
