@@ -7,15 +7,6 @@ skip_before_filter :verify_authenticity_token, :only => [:destroy, :create]
     super
   end
 
-  # POST /resource/sign_in
-  # def create
-  #   resource = warden.authenticate!(:scope => resource_name, :recall => :failure)
-  #   sign_in_and_redirect(resource_name, resource)
-  #   respond_to do |format|
-  #     format.js
-  #   end
-  # end
-
   def create
     @params_session = [params[:user][:email]]
     @page = params[:page]
