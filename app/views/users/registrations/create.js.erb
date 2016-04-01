@@ -1,11 +1,13 @@
 $("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmniauth', resource: User.new)) %>");
-<% @error.each do |error| %>
-  $('#errors_signup').append('<%= error %> <br />' );
-<% end %>
-$('#log_in').hide();
-$('#sign_up').show();
-
-$('#sign_up #user_email').val('<%= @params_reg[0] %>');
 
 $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone')) %>");
 initDropzone();
+
+$('.log_in').hide();
+$('.sign_up').show();
+
+$('.sign_up #user_email').val('<%= @params_reg[0] %>');
+
+<% @error.each do |error| %>
+  $('.errors_signup').append('<%= error %> <br />' );
+<% end %>

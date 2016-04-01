@@ -1,9 +1,9 @@
-#log_in.form-2
+.log_in.form-2
   %h1
     %span.log-in Log in
     or
     %span.sign-up{onClick: 'login_or_signup("signup")'} sign up
-  #errors_login
+  .errors_login
   = form_for(User.new, as: resource_name, url: session_path(resource_name), remote: true) do |f|
     %p.float
       %label{:for => 'login'}
@@ -19,13 +19,13 @@
       = link_to 'Log in Facebook', omniauth_authorize_path(resource_name, 'facebook'), class:'log-twitter'
       = f.submit 'Log in', class: ''
 
-#sign_up{style: 'display: none;'}
+.sign_up{style: 'display: none;'}
   .form-2
     %h1
       %span.sign-up sign up
       or
       %span.log-in{onClick: 'login_or_signup("login")'} Log in
-    #errors_signup
+    .errors_signup
     = form_for(User.new, as: resource_name, url: registration_path(resource_name), remote: true) do |f|
       %br
       %p
