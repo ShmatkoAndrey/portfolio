@@ -3,7 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer :user_id
       t.integer :dropzone_file_id
-      t.boolean :like
+      t.integer :like
 
       t.timestamps null: false
     end

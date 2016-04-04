@@ -4,10 +4,6 @@ module DropzoneFilesHelper
     %w(jpg jpeg png gif).any? {|f| f == format} ? true : false
   end
 
-  def votes_cnt(media)
-    media.votes.where(like: true).length - media.votes.where(like: false).length
-  end
-
   def user_vote?(id)
     current_user.votes.where(dropzone_file_id: id).any?
   end
@@ -19,7 +15,7 @@ module DropzoneFilesHelper
       when 'top'
         hash = Hash.new
         DropzoneFile.all.each do |d|
-          hash[d] = d.votes.where(like: true).length - d.votes.where(like: false).length
+          hash[d] = d.rate
         end
         Kaminari.paginate_array(hash.sort_by {|_key, value| value}.to_h.keys.reverse.in_groups_of(3)).page(pages[:top]).per(2)
       when 'myfiles'

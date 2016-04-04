@@ -9,7 +9,8 @@ skip_before_filter :verify_authenticity_token, :only => [:destroy, :create]
 
   def create
     @params_session = [params[:user][:email]]
-    @page = params[:page]
+    @pages = params[:pages]
+    @type_page = params[:type_page]
     resource = User.find_for_database_authentication(:email => params[:email])
     return @error = 'Invalid email or password' unless resource
 
@@ -31,7 +32,7 @@ skip_before_filter :verify_authenticity_token, :only => [:destroy, :create]
   def destroy
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
 
-    @page = params[:page]
+    @pages = params[:pages]
 
     respond_to do |format|
       format.js {}

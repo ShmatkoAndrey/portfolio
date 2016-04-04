@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @page = params[:page]
+    @pages = params[:pages]
+    @type_page = params[:type_page]
     build_resource(sign_up_params)
     @params_reg = [sign_up_params[:email]]
     respond_to do |format|

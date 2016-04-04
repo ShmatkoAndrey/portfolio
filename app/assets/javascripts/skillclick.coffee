@@ -6,6 +6,8 @@
 
   if skill == 'googleMap'
     initMap()
+  else if skill == 'dropzone'
+    tabsDropzone('top');
   else if skill == 'tinymce'
     tinyMCE.init
       resize: false

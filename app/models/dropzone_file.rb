@@ -5,4 +5,8 @@ class DropzoneFile < ActiveRecord::Base
 
   has_many :votes, dependent: :destroy
 
+  def rate
+    self.votes.sum(:like)
+  end
+
 end

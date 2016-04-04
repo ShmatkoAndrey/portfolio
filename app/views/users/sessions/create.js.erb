@@ -1,7 +1,8 @@
 $("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmniauth')) %>");
 
-$("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone')) %>");
+$("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', pages: @pages)) %>");
 initDropzone();
+tabsDropzone('top');
 
 $('.errors_login').html('<%= @error %>' );
 
