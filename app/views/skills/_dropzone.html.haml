@@ -1,30 +1,36 @@
-.col-md-5.large_height
-  - if user_signed_in?
-    = form_tag '/dropzone_files', method: :post, class: 'dropzone drop_form', id: 'media-dropzone' do
-      .fallback
-        = file_field_tag 'media', multiple: true
-  - else
-    = render 'users/devise/sign_in'
+.col-md-5
   #image_show
 .col-md-7
+  %ul#nav-dropzone.nav.nav-tabs.nav-justified
+    %li.dropzone_nav_add{:role => 'presentation'}
+      %a{:href => '#firstPage/slide2', onClick: 'tabsDropzone("add")'} Add
+    %li.dropzone_nav_myfiles{:role => 'presentation'}
+      %a{:href => '#firstPage/slide2', onClick: 'tabsDropzone("myfiles")'} My files
+    %li.dropzone_nav_top{:role => 'presentation'}
+      %a{:href => '#firstPage/slide2', onClick: 'tabsDropzone("top")'} TOP
+    %li.dropzone_nav_new{:role => 'presentation'}
+      %a{:href => '#firstPage/slide2', onClick: 'tabsDropzone("new")'} New
+
+  - page = 0 if page.nil?
   #media-contents
-    - page = 0 if page.nil?
-    - files = files_kaminari(page)
-
-    = paginate files,  :theme => 'twitter-bootstrap-3',
-                    :pagination_class => 'pagination-sm',
-                    :params => { :controller => '/static_pages', :action => 'paginate'},
-                     remote: true
-
-    - files.each do |group|
-      .row
-        - group.each do |media|
-          - if media
-            .col-md-4
-              .thumbnail{id: "file_#{media.id}"}
-                = render 'dropzone_files/file', media: media, page: page
-
-    = paginate files,  :theme => 'twitter-bootstrap-3',
-                    :pagination_class => 'pagination-sm',
-                    :params => { :controller => '/static_pages', :action => 'paginate'},
-                     remote: true
+    #media_tabs
+      #media_add
+        - if user_signed_in?
+          = form_tag '/dropzone_files', method: :post, class: 'dropzone drop_form', id: 'media-dropzone' do
+            .fallback
+              = file_field_tag 'media', multiple: true
+        - else
+          = render 'users/devise/sign_in'
+        #media_download
+      #media_myfiles
+        - if user_signed_in?
+          - files = files_kaminari(page, 'myfiles')
+          = render 'dropzone_files/files', page: page, files: files
+        - else
+          = render 'users/devise/sign_in'
+      #media_top
+        - files = files_kaminari(page, 'top')
+        = render 'dropzone_files/files', page: page, files: files
+      #media_new
+        - files = files_kaminari(page, 'new')
+        = render 'dropzone_files/files', page: page, files: files
