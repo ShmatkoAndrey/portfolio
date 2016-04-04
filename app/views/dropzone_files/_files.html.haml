@@ -1,6 +1,6 @@
 = paginate files,  :theme => 'twitter-bootstrap-3',
                     :pagination_class => 'pagination-sm',
-                    :params => { :controller => '/static_pages', :action => 'paginate'},
+                    :params => { :controller => '/static_pages', :action => 'paginate', type_page: type_page, pages: pages},
                      remote: true
 
 - files.each do |group|
@@ -9,4 +9,4 @@
       - if media
         .col-md-4
           .thumbnail{id: "file_#{media.id}"}
-            = render 'dropzone_files/file', media: media, page: page
+            = render 'dropzone_files/file', media: media, pages: pages, type_page: type_page

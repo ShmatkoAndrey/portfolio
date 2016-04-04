@@ -11,7 +11,6 @@
     %li.dropzone_nav_new{:role => 'presentation'}
       %a{:href => '#firstPage/slide2', onClick: 'tabsDropzone("new")'} New
 
-  - page = 0 if page.nil?
   #media-contents
     #media_tabs
       #media_add
@@ -24,13 +23,10 @@
         #media_download
       #media_myfiles
         - if user_signed_in?
-          - files = files_kaminari(page, 'myfiles')
-          = render 'dropzone_files/files', page: page, files: files
+          = render 'dropzone_files/files', pages: pages, files: files_kaminari(pages, 'myfiles'), type_page: 'myfiles'
         - else
           = render 'users/devise/sign_in'
       #media_top
-        - files = files_kaminari(page, 'top')
-        = render 'dropzone_files/files', page: page, files: files
+        = render 'dropzone_files/files', pages: pages, files: files_kaminari(pages, 'top'), type_page: 'top'
       #media_new
-        - files = files_kaminari(page, 'new')
-        = render 'dropzone_files/files', page: page, files: files
+        = render 'dropzone_files/files', pages: pages, files: files_kaminari(pages, 'new'), type_page: 'new'

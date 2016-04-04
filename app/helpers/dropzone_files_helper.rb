@@ -12,19 +12,18 @@ module DropzoneFilesHelper
     current_user.votes.where(dropzone_file_id: id).any?
   end
 
-  def files_kaminari(page = 0, tab)
+  def files_kaminari(pages, tab)
     case tab
       when 'new'
-        Kaminari.paginate_array(DropzoneFile.order('created_at DESC').in_groups_of(3)).page(page).per(2)
+        Kaminari.paginate_array(DropzoneFile.order('created_at DESC').in_groups_of(3)).page(pages[:new]).per(2)
       when 'top'
         hash = Hash.new
         DropzoneFile.all.each do |d|
-          vt = d.votes
-          hash[d] = vt.where(like: true).length - vt.where(like: false).length
+          hash[d] = d.votes.where(like: true).length - d.votes.where(like: false).length
         end
-        Kaminari.paginate_array(hash.sort_by {|_key, value| value}.to_h.keys.reverse.in_groups_of(3)).page(page).per(2)
+        Kaminari.paginate_array(hash.sort_by {|_key, value| value}.to_h.keys.reverse.in_groups_of(3)).page(pages[:top]).per(2)
       when 'myfiles'
-        Kaminari.paginate_array(current_user.dropzone_files.order('created_at DESC').in_groups_of(3)).page(page).per(2)
+        Kaminari.paginate_array(current_user.dropzone_files.order('created_at DESC').in_groups_of(3)).page(pages[:myfiles]).per(2)
       else
         puts 'und tab'.red
     end

@@ -5,7 +5,9 @@ class StaticPagesController < ApplicationController
   end
 
   def paginate
-    @page = params[:page]
+    @pages = params[:pages]
+    @type_page = params[:type_page]
+    @pages[@type_page] = params[:page]
   end
 
 end

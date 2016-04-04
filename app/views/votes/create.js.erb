@@ -1,7 +1,7 @@
 <% if @destroy %>
-  $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', page: @page)) %>");
+  $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', pages: @pages, type_page: @type_page)) %>");
   initDropzone();
-  tabsDropzone('top');
+  tabsDropzone('<%= @type_page %>');
 <% else %>
-  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").html("<%= escape_javascript(render('dropzone_files/file', media: @file, page: @page)) %>");
+  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").html("<%= escape_javascript(render('dropzone_files/file', media: @file, pages: @pages, type_page: @type_page)) %>");
 <% end %>
