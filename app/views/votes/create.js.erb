@@ -2,5 +2,5 @@
   $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', page: @page)) %>");
   initDropzone();
 <% else %>
-  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").html("<%= escape_javascript(render('skills/dropzone/file', media: @file, page: @page)) %>");
+  $("#skill_dropzone .thumbnail#file_<%= @file.id %>").html("<%= escape_javascript(render('dropzone_files/file', media: @file, page: @page)) %>");
 <% end %>

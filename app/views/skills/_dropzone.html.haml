@@ -4,7 +4,7 @@
       .fallback
         = file_field_tag 'media', multiple: true
   - else
-    = render 'skills/devise/sign_in'
+    = render 'users/devise/sign_in'
   #image_show
 .col-md-7
   #media-contents
@@ -22,7 +22,7 @@
           - if media
             .col-md-4
               .thumbnail{id: "file_#{media.id}"}
-                = render 'skills/dropzone/file', media: media, page: page
+                = render 'dropzone_files/file', media: media, page: page
 
     = paginate files,  :theme => 'twitter-bootstrap-3',
                     :pagination_class => 'pagination-sm',
