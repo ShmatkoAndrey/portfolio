@@ -1,5 +1,3 @@
-- pages = {myfiles: 0, top: 0, new: 0} if pages.nil?
-
 .col-md-5
   #image_show
 .col-md-7
@@ -21,7 +19,7 @@
             .fallback
               = file_field_tag 'media', multiple: true
         - else
-          = render 'users/devise/sign_in'
+          = render 'users/devise/sign_in', pages: pages
         #media_download
       #media_myfiles
         - if user_signed_in?

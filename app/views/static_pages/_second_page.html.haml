@@ -1,3 +1,5 @@
+- pages = {myfiles: 0, top: 0, new: 0} if pages.nil?
+
 .col-md-1
 .col-md-10
   #skills_list
@@ -9,4 +11,4 @@
     #all_skills
       - skills_list.each do |skill|
         %div{:id => "skill_#{skill}", class: 'skill_show_block'}
-          = render "skills/#{skill}"
+          = render "skills/#{skill}", pages: pages

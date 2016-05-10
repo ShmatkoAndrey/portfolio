@@ -2,4 +2,4 @@ $("#skill_deviseOmniauth").html("<%= escape_javascript(render('skills/deviseOmni
 
 $("#skill_dropzone").html("<%= escape_javascript(render('skills/dropzone', pages: @pages)) %>");
 initDropzone();
-tabsDropzone('top');
+tabsDropzone('<%= @type_page %>');

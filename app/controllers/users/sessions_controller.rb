@@ -10,7 +10,7 @@ skip_before_filter :verify_authenticity_token, :only => [:destroy, :create]
   def create
     @params_session = [params[:user][:email]]
     @pages = params[:pages]
-    @type_page = params[:type_page]
+    @type_page = params[:type_page]  || 'top'
     resource = User.find_for_database_authentication(:email => params[:email])
     return @error = 'Invalid email or password' unless resource
 

@@ -12,9 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @pages = params[:pages]
-    @type_page = params[:type_page]
-    build_resource(sign_up_params)
+    @type_page = params[:type_page] || 'top'
     @params_reg = [sign_up_params[:email]]
+
+    build_resource(sign_up_params)
     respond_to do |format|
       resource.save
       @error = resource.errors.full_messages

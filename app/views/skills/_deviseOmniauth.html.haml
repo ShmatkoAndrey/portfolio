@@ -25,6 +25,6 @@
     authenticate users via disparate systems. OmniAuth strategies have been created for everything from Facebook to LDAP.
 .col-md-6
   - if user_signed_in?
-    = render 'users/devise/profile', resource: resource
+    = render 'users/devise/profile', resource: resource, pages: pages
   - else
-    = render 'users/devise/sign_in', resource: resource
+    = render 'users/devise/sign_in', resource: resource, pages: pages

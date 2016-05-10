@@ -17,5 +17,6 @@
         = f.file_field :avatar, class: 'upload'
 
     %p.clearfix
-      = link_to 'Destroy acc', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, remote: true, class: 'log-destroy'
+      = link_to 'Destroy acc', registration_path(resource_name, pages: pages),
+                data: { confirm: 'Are you sure?' }, method: :delete, remote: true, class: 'log-destroy'
       = f.submit 'Update', class: ''
