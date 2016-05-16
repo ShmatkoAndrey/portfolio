@@ -6,7 +6,7 @@
     
 
 .col-md-4
-  
+  %iframe{:frameborder => "0", :height => "100%", :scrolling => "no", :src => "http://beta.drivetagdev.com/widgets/tagbutton?uid=326496", :width => "100%"}/
 
 .col-md-3
   #block_skills

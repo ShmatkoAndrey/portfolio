@@ -1,3 +1,4 @@
+- pages = {}
 .log_in.form-2
   %h1
     %span.log-in Log in
@@ -17,7 +18,7 @@
       = f.password_field :password, autocomplete: 'off', class: 'showpassword', :placeholder => 'Password'
     %p.clearfix
       = link_to 'Log in Facebook', omniauth_authorize_path(resource_name, 'facebook'), class:'log-twitter'
-      =# f.submit 'Log in', class: ''#, pages: pages
+      = f.submit 'Log in', class: '', pages: pages
 
 .sign_up{style: 'display: none;'}
   .form-2
@@ -46,4 +47,4 @@
 
       %p.clearfix
         = link_to 'Sign up Facebook', omniauth_authorize_path(resource_name, 'facebook'), class:'log-twitter'
-        =# f.submit 'Sign up', class: ''#, pages: pages
+        = f.submit 'Sign up', class: '', pages: pages
