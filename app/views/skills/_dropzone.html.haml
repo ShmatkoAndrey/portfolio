@@ -1,3 +1,4 @@
+- puts "#{pages}".red
 .col-md-5
   #image_show
 .col-md-7
@@ -25,7 +26,7 @@
         - if user_signed_in?
           = render 'dropzone_files/files', pages: pages, files: files_kaminari(pages, 'myfiles'), type_page: 'myfiles'
         - else
-          = render 'users/devise/sign_in'
+          = render 'users/devise/sign_in', pages: pages
       #media_top
         = render 'dropzone_files/files', pages: pages, files: files_kaminari(pages, 'top'), type_page: 'top'
       #media_new

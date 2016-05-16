@@ -9,6 +9,7 @@ module DropzoneFilesHelper
   end
 
   def files_kaminari(pages, tab)
+    pages = {myfiles: 0, top: 0, new: 0} if pages.nil?
     case tab
       when 'new'
         Kaminari.paginate_array(DropzoneFile.order('created_at DESC').in_groups_of(3)).page(pages[:new]).per(2)
