@@ -1,0 +1,33 @@
+#map {
+  width: 500px;
+  height: 500px;
+  display: inline-block;
+}
+
+#markers {
+  display: block;
+  height: 300px;
+  overflow: auto;
+}
+
+#checkbox, #checkbox_label, #times, #range {
+  display: inline-block;
+}
+
+#range_val {
+  width: 35px;
+  display: inline-block;
+}
+
+#warning {
+  color: red;
+}
+
+.map-button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid darkgrey;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #fff;
+}

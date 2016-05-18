@@ -1,1 +1,15 @@
-#map
+.col-md-6
+  #map
+.col-md-6
+  #warning Осталось: 8 точек
+  #markers
+  %label#range_val{:for => 'range'}
+  %input#range{:max => '150', :min => '5', :type => 'range', :value => '80'}/
+  #times
+  %br/
+  %input#checkbox{:type => 'checkbox'}/
+  %label#checkbox_label{:for => 'checkbox'} Строить сразу
+  .map-button{:onclick => 'buildRoutes()'} Build routes
+  .map-button{:onclick => 'startDriving()'} Start drive!
+  .map-button{:onclick => 'resetRoutes()'} Reset routes
+  .map-button{:onclick => 'resetMarkers()'} Reset markers
